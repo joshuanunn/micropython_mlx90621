@@ -3,7 +3,7 @@ Micropython module to communicate with Melexis MLX90621 16 x 4 Pixel Thermal Ima
 # Usage
 This module has been created for, and tested with, the Micropython Pyboard v1.1. Changes to the I2C commands may be needed if moving to another Micropython platform and note that the I2C protocol must be able to support repeated start commands.
 
-Usage of the module requires instantiation of an MLX90621 instance (specifying the MLX90621 refresh rate), followed by sensor initialisation, and finally acquiring measurements on demand. Consult the MLX90621 datasheet for details of refresh rate - this defines the rate the sensor samples at, but it is up to the user how frequently new results are pulled from the device itself, and therefore limited to the processing overhead of each sensor_read sequence.
+Usage of the module requires the creation of an MLX90621 instance (specifying the MLX90621 refresh rate), followed by sensor initialisation, and finally acquiring measurements on demand. Consult the MLX90621 datasheet for details of refresh rate - this defines the rate the sensor samples at, but it is up to the user how frequently new results are pulled from the device itself, and therefore limited to the processing overhead of each sensor_read sequence.
 
 The results of the latest measurement are held in two internal 4 x 16 arrays in the class instance, and are available as either floats (as degrees C) or integers (as 10 x degrees C to provide more precision).
 
@@ -45,3 +45,6 @@ while True:
         print('\t'.join(line))
     print('') # Print block separator
 ```
+
+# Acknowledgements
+This project is based upon the daemon component of the C implementation 'mlxd' written for the Raspberry Pi, by Chuck Werbick 2015 - https://github.com/alphacharlie/mlxd
